@@ -107,9 +107,9 @@ app.get('/submitpost', function(req, res)
 	res.render('submitpost', {submitted: passedVariable});
 });
 
-app.listen(1337, function()
+app.listen(process.env.PORT || 1337, function()
 {
-	console.log("App is listening on port 1337");
+	console.log("App is listening");
 });
 
 process.stdin.resume();//so the program will not close instantly
