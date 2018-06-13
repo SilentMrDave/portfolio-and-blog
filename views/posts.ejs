@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blog</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<%- include('partials/header')%>
+	<div class="container">    
+		<h1>Blog</h1>   
+			<% for(var i = 0; i < posts.length; i++) { %>    
+			<div class="container-fluid post">
+				<h2><%=  posts[i].title %> <small>Author: <%=  posts[i].author %></small></h2>
+				
+				<p class="container"><%=  posts[i].content.substring(0, 200); %> 
+				<% if(posts[i].content.length > 200) {%>...<a href="#">(Read More)</a><%}%>
+				</p>
+			</div>		   
+			<% } %>    
+	</div>
+</body>
+</html>

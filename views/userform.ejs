@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create an Account</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<%- include('partials/header') %>
+	<div class="container">
+		<% if (submitted != undefined)
+			{ 
+				var message = "";
+				if (submitted == 'true') message = "User created";
+				else message = "No user created"
+		%>
+		<script type="text/javascript">alert('<%= message %>');</script>
+		<%}%>
+		    
+		<h1>Create an Account</h1>    
+		<form action="createuser" class="form" method="post">
+			Username<br>
+			<input type="text" name="username" class="form-group"><br>
+			Password<br>
+			<input type="password" name="password" class="form-group"><br>
+			Email<br>
+			<input type="text" name="email" class="form-group"><br>
+			<input type="submit" class="btn btn-primary">
+		</form>
+	</div>
+</body>
+</html>

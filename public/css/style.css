@@ -1,0 +1,41 @@
+body
+{
+	background-color: black;
+	color: green;
+}
+
+ul
+{	
+	list-style-type: lower-greek;
+	font-weight: bolder;
+}
+
+h1
+{
+	color: limegreen;
+	text-transform: uppercase;
+}
+
+tr:hover
+{
+	background-color: lightgray;
+}
+
+.post h2
+{
+	color: limegreen;
+}
+
+.post small
+{
+	color: green;
+	font-size: 50%;
+}
+
+.post 
+{
+	background-color: #1e1e1e;
+	border-radius: 20px;
+	padding: 10px;
+	margin: 10px;
+}

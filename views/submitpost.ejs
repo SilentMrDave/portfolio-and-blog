@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Submit a Post</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<%- include('partials/header') %>
+	<div class="container">
+		<% if (submitted != undefined)
+			{ 
+				var message = "";
+				if (submitted == 'true') message = "Post created";
+				else message = "No post created"
+		%>
+		<script type="text/javascript">alert('<%= message %>');</script>
+		<%}%>
+		    
+		<h1>Submit a Post</h1>    
+		<form action="createpost" method="post" id="postsubmit">
+			Username<br>
+			<input type="text" name="author" class="form-group"><br>
+			Title<br>
+			<input type="text" name="title" class="form-group"><br>
+			Content<br>
+			<textarea name="content" class="form-group container" placeholder="Enter your post here." form="postsubmit" cols="80" rows="10"></textarea><br>
+			<input type="submit" class="btn btn-primary">
+		</form>
+	</div>
+</body>
+</html>
