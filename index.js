@@ -88,6 +88,7 @@ app.post('/createuser', function(req, res)
 	{
 		pool.query(`insert into users (username, password, email) values ('${username}', '${password}', '${email}')`, (err, pres) => 
 		{
+			if (err != undefined) console.log(err);
 			res.redirect('userform?submitted=true');
 		})
 	}
@@ -107,6 +108,7 @@ app.post('/createpost', function(req, res)
 	{
 		pool.query(`insert into posts (author, title, content) values ('${author}', '${title}', '${content}')`, (err, pres) => 
 		{
+			if (err != undefined) console.log(err);
 			res.redirect('submitpost?submitted=true');
 		})
 	}
