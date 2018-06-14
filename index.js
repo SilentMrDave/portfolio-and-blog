@@ -17,20 +17,14 @@ const { Pool, Client } = require('pg')
 
 const pool = new Pool(
 {
-  user: 'postgres',
-  host: 'localhost',
-  database: 'post',
-  password: 'n3tw0rk',
-  port: 5432,
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
 });
 
 const client = new Client(
 {
-  user: 'postgres',
-  host: 'localhost',
-  database: 'post',
-  password: 'n3tw0rk',
-  port: 5432,
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
 });
 
 client.connect();
