@@ -15,6 +15,26 @@ app.use(parser.urlencoded({
 
 const { Pool, Client } = require('pg')
 
+/*
+const pool = new Pool(
+{
+  user: 'postgres',
+  host: 'localhost',
+  database: 'post',
+  password: 'n3tw0rk',
+  port: 5432,
+});
+
+const client = new Client(
+{
+  user: 'postgres',
+  host: 'localhost',
+  database: 'post',
+  password: 'n3tw0rk',
+  port: 5432,
+});
+*/
+
 const pool = new Pool(
 {
   connectionString: process.env.DATABASE_URL,
@@ -39,6 +59,14 @@ app.get('/posts', function(req, res)
 	pool.query('SELECT * from posts', (err, pres) => 
 	{
 	  res.render('posts', {posts: pres.rows});
+	})
+});
+
+app.get('/post/:postId', function(req, res)
+{
+	pool.query('SELECT * from posts where id=' + req.params.postId, (err, pres) => 
+	{
+	 	res.render('post', {post: pres.rows[0]});
 	})
 });
 
@@ -79,7 +107,6 @@ app.post('/createpost', function(req, res)
 	{
 		pool.query(`insert into posts (author, title, content) values ('${author}', '${title}', '${content}')`, (err, pres) => 
 		{
-			console.log(err);
 			res.redirect('submitpost?submitted=true');
 		})
 	}
